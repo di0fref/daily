@@ -97,6 +97,20 @@ async function parseTaskInput(raw) {
 }
 
 /**
+ * Light/dark theme toggle. The applied class is set by an inline script in the
+ * layout head so there is no flash before Alpine boots.
+ */
+Alpine.data('themeToggle', () => ({
+    dark: document.documentElement.classList.contains('dark'),
+
+    toggle() {
+        this.dark = !this.dark;
+        document.documentElement.classList.toggle('dark', this.dark);
+        localStorage.setItem('theme', this.dark ? 'dark' : 'light');
+    },
+}));
+
+/**
  * Task card: the whole card opens the edit modal, except when the click landed
  * on a control, the subtask panel, or at the end of a drag.
  */

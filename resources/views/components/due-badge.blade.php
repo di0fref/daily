@@ -3,13 +3,13 @@
 @if ($task->due_date)
     @php
         if ($task->is_done) {
-            $classes = 'bg-slate-100 text-slate-500 ring-slate-200';
+            $classes = 'bg-slate-100 text-slate-500 ring-slate-200 dark:bg-slate-800 dark:text-slate-500 dark:ring-slate-700';
         } elseif ($task->is_overdue) {
-            $classes = 'bg-rose-100 text-rose-700 ring-rose-200';
+            $classes = 'bg-rose-100 text-rose-700 ring-rose-200 dark:bg-rose-500/15 dark:text-rose-300 dark:ring-rose-500/30';
         } elseif ($task->is_due_today) {
-            $classes = 'bg-indigo-100 text-indigo-700 ring-indigo-200';
+            $classes = 'bg-indigo-100 text-indigo-700 ring-indigo-200 dark:bg-indigo-500/15 dark:text-indigo-300 dark:ring-indigo-500/30';
         } else {
-            $classes = 'bg-slate-100 text-slate-600 ring-slate-200';
+            $classes = 'bg-slate-100 text-slate-600 ring-slate-200 dark:bg-slate-800 dark:text-slate-300 dark:ring-slate-700';
         }
 
         $text = $task->is_due_today
